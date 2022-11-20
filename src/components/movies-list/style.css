@@ -1,0 +1,38 @@
+.favorites-films{
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.films div img{
+    border-radius: 5%;
+    opacity: 0.75;
+}
+
+.films div{
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.films div img:hover{
+    opacity: 1;
+}
+
+.films{
+    width: 90%;
+    display: flex;
+    overflow: hidden;
+}
+
+.aside-button{
+    width: 5%;
+}
+
+.aside-button img {
+    height: 10vh;
+    margin-top: 10vh;
+    margin-left: 2vh;
+    box-sizing: border-box;
+}

@@ -43,7 +43,7 @@ body {
     color: var(--var-color);
     position: relative;
     padding-left: 30px;
-    padding-top: 20px;
+    padding-top: 25px;
     font-weight: bold;
     box-sizing: border-box;
 }

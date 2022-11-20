@@ -10,6 +10,7 @@ const Header = () => {
             <div className='login'>Login</div>
             <div className='register'>Sign Up</div>
         </div>
+        
     )
 };
 
