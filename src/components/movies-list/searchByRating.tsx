@@ -10,10 +10,10 @@ interface MovieType {
   description: string;
 }
 
-const MoviesList = () => {
+const MoviesListByRating = () => {
   const [displayedMovies, setDisplayedMovies] = useState<MovieType[]>([]);
   useEffect(() => {
-    fetch("http://localhost:5000/movies")
+    fetch("http://localhost:5000/movies/rating")
       .then((res) => res.json())
       .then((data) => setDisplayedMovies(data));
   }, []);
@@ -32,22 +32,22 @@ const MoviesList = () => {
   return (
     <>
     <div className="information">
-    <h2 className="all-film-title">Wszystkie filmy w repertuarze:</h2>
+    <h2 className="favorites-film-title">Najlepiej oceniane:</h2>
     <div className="aside-button-left" onClick={goToPrevious}><img src={require("../../assets/left.png")} alt="LEFT"></img></div>
     <div className="aside-button-right" onClick={goToNext}><img src={require("../../assets/right.png")} alt="RIGHT"></img></div>
     </div>
     <div className="favorites-films">
-      {/* <div className="aside-button-left" onClick={goToPrevious}><img src={require("../../assets/left.png")} alt="LEFT"></img></div> */}
+      {/* <div className="aside-button-left" onClick={goToPrevious}><img src={require("../../assets/left.png")} alt="LEFT"></img></div>  */}
       <div className="films">
-      {displayedMovies.map((movie) => (
-        <div key={movie.movieId}>
+        {displayedMovies.map((movie) => (
+        <div key={movie.movieId} className="simple-film">
           <img src={`${process.env.REACT_APP_SERVER_BASE}${movie.image}`} alt={movie.name}></img>
         </div>
-      ))}
+        ))}
       </div>
       {/* <div className="aside-button-right" onClick={goToNext}><img src={require("../../assets/right.png")} alt="RIGHT"></img></div> */}
     </div>
     </>
   );
 };
-export default MoviesList;
+export default MoviesListByRating;
