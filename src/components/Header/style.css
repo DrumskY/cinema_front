@@ -4,6 +4,10 @@ body {
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+Link {
+    text-decoration: none;
+}
+
 .header {
     position: fixed;
     left: 0;
@@ -16,7 +20,7 @@ body {
     position: absolute;
     right: 100px;
     top: 30px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #FFF;
     padding: 5px;
     box-sizing: border-box;
@@ -30,7 +34,7 @@ body {
     position: absolute;
     right: 25px;
     top: 30px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #FFF;
     padding: 5px;
     box-sizing: border-box;
@@ -41,6 +45,7 @@ body {
 }
 
 .logo {
+    width: 15%;
     font-size: 2rem;
     color: var(--var-color);
     position: relative;
@@ -52,10 +57,11 @@ body {
 
 .logo::before {
     position: absolute;
+    width: 15%;
     content: attr(data-text);
     text-shadow: 0px 0px 20px var(--var-color);
     filter: blur(10px), brightness(0);
-    animation: flicker 5s linear forwards infinite;
+    animation: flicker 5s linear forwards;
     animation-delay: 2s;
 }
 

@@ -3,9 +3,7 @@ body {
     padding: 0;
     height: 100%;
     width: 100%;
-}
-
-.body{
-    margin: 0 auto;
     max-width: 1200px;
+    --var-color: rgb(0, 238, 255);
+    font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
