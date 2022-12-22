@@ -1,0 +1,38 @@
+.wrapper-profil{
+    height: 65vh;
+    width: 100%;
+    padding-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #020916;
+}
+
+.profil-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    max-width: 80%;
+    min-width: 100px;
+    min-height: 400px;
+    padding: 20px 40px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 40px rgb(48, 48, 48);
+    background-color: #182131;
+}
+
+.info {
+    display: flex;
+    margin: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-info{
+    width: 50%;
+}
+
+.personally-user-info{
+    width: 50%;
+}

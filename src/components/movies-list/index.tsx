@@ -37,7 +37,6 @@ const MoviesList = () => {
     <div className="aside-button-right" onClick={goToNext}><img src={require("../../assets/right.png")} alt="RIGHT"></img></div>
     </div>
     <div className="favorites-films">
-      {/* <div className="aside-button-left" onClick={goToPrevious}><img src={require("../../assets/left.png")} alt="LEFT"></img></div> */}
       <div className="films">
       {displayedMovies.map((movie) => (
         <div key={movie.movieId}>
@@ -45,7 +44,6 @@ const MoviesList = () => {
         </div>
       ))}
       </div>
-      {/* <div className="aside-button-right" onClick={goToNext}><img src={require("../../assets/right.png")} alt="RIGHT"></img></div> */}
     </div>
     </>
   );

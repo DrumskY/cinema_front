@@ -21,10 +21,10 @@ const Login = () => {
          },
        })
          .then(({ data, status }) => {
-           console.log(data);
+           console.log(data.user.name);
            if (status === 200) {
-             window.localStorage.setItem("accessToken", data.accessToken);
-             window.localStorage.setItem("refreshToken", data.refreshToken);
+             window.localStorage.setItem("accessToken", data.token);
+             window.localStorage.setItem("username", data.user.name)
              console.log("Log in success");
              setLogged(true);
              navigate("/");

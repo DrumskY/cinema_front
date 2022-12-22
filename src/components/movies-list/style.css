@@ -20,6 +20,7 @@
     opacity: 0.75;
     width: 100%;
     height: auto;
+    cursor: pointer;
 }
 
 .films div img:hover{
@@ -53,10 +54,12 @@
 
 .aside-button-left img {
     height: 20px;
+    cursor: pointer;
 }
 
 .aside-button-right img {
     height: 20px;
+    cursor: pointer;
 }
 /* .all-films-title{
     color: white;
