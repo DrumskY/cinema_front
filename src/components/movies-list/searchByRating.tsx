@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 interface MovieType {
@@ -37,15 +38,15 @@ const MoviesListByRating = () => {
     <div className="aside-button-right" onClick={goToNext}><img src={require("../../assets/right.png")} alt="RIGHT"></img></div>
     </div>
     <div className="favorites-films">
-      {/* <div className="aside-button-left" onClick={goToPrevious}><img src={require("../../assets/left.png")} alt="LEFT"></img></div>  */}
       <div className="films">
         {displayedMovies.map((movie) => (
         <div key={movie.movieId} className="simple-film">
-          <img src={`${process.env.REACT_APP_SERVER_BASE}${movie.image}`} alt={movie.name}></img>
+          <Link to={`/movies/${movie.movieId}`}>
+            <img src={`${process.env.REACT_APP_SERVER_BASE}${movie.image}`} alt={movie.name}></img>
+          </Link>
         </div>
         ))}
       </div>
-      {/* <div className="aside-button-right" onClick={goToNext}><img src={require("../../assets/right.png")} alt="RIGHT"></img></div> */}
     </div>
     </>
   );

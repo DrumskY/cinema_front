@@ -65,6 +65,13 @@ p, div {
     outline: none;
     border: 1px solid #d6d1d5;
   }
+
+  /* input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid darkred;
+    border-radius: 5px;
+  } */
   
   input::placeholder {
     font-size: 1.2em;

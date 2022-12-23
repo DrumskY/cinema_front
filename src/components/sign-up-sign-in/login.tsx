@@ -48,6 +48,8 @@ const Login = () => {
                      type='email'
                      value={email} 
                      name='email'
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                     required
                      placeholder='Email'
                      onChange={(e) => setEmail(e.currentTarget.value)} />
                 </div>
@@ -56,6 +58,8 @@ const Login = () => {
                    <input 
                      type='password' 
                      value={password}
+                     pattern="[a-zA-Z0-9-]+"
+                     required
                      name='password'
                      placeholder='Password'
                      onChange={(e) => setPassword(e.currentTarget.value)} />

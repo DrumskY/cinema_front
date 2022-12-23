@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 interface MovieType {
@@ -39,9 +40,11 @@ const MoviesList = () => {
     <div className="favorites-films">
       <div className="films">
       {displayedMovies.map((movie) => (
-        <div key={movie.movieId}>
-          <img src={`${process.env.REACT_APP_SERVER_BASE}${movie.image}`} alt={movie.name}></img>
-        </div>
+          <div key={movie.movieId}>
+            <Link to={`/movies/${movie.movieId}`}>
+              <img src={`${process.env.REACT_APP_SERVER_BASE}${movie.image}`} alt={movie.name}></img>
+            </Link>
+          </div>
       ))}
       </div>
     </div>

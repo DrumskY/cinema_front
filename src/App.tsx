@@ -7,19 +7,24 @@ import Login from './components/sign-up-sign-in/login';
 import Home from './pages/Home/home';
 import { useState } from 'react';
 import Profile from './components/user-profile/profile';
+import MovieDetails from './components/movie-details';
+import { ProfileType } from './types/user';
 
 function App() {
   const [isFetching, setIsFetching] = useState(true);
   const [logged, setLogged] = useState(false);
+  const [userProfile, setUserProfile] = useState<ProfileType[]>([]);
 
   return (
-    <GlobalContext.Provider value={{ logged, setLogged }}>
+    <GlobalContext.Provider value={{ logged, setLogged, userProfile, setUserProfile }}>
       <Header /> 
       <Routes>
         <Route path='/'element= { <Home /> } /> 
         <Route path='/register'element= { <Register />} /> 
         <Route path='/login'element= { <Login />} />  
         <Route path='/profil' element= {<Profile />} />
+        <Route path='/movies/:id' element = {<MovieDetails/>} />
+        <Route path='*' element = {<Home />} />
       </Routes>
     </GlobalContext.Provider>
   );

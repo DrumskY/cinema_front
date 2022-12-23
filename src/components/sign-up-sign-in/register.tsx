@@ -52,7 +52,9 @@ const Register = () => {
                   <label htmlFor="username">Username</label>
                   <input 
                      type='text' 
-                     value={username} 
+                     value={username}
+                     pattern="^.{3,}$"
+                     required
                      name='username' 
                      placeholder='Username'
                      onChange={(e) => setUsername(e.currentTarget.value)} />
@@ -62,6 +64,8 @@ const Register = () => {
                   <input 
                      type='text' 
                      value={firstName} 
+                     pattern="^.{3,}$"
+                     required
                      name='first-name' 
                      placeholder='First Name'
                      onChange={(e) => setFirstName(e.currentTarget.value)} />
@@ -71,6 +75,8 @@ const Register = () => {
                   <input 
                      type='text' 
                      value={lastName} 
+                     pattern="^.{3,}$"
+                     required
                      name='last-name' 
                      placeholder='Last Name'
                      onChange={(e) => setLastName(e.currentTarget.value)} />
@@ -81,6 +87,8 @@ const Register = () => {
                      type='email' 
                      value={email}
                      name='email' 
+                     required
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                      placeholder='Email'
                      onChange={(e) => setEmail(e.currentTarget.value)} />
                </div>
@@ -89,6 +97,8 @@ const Register = () => {
                   <input 
                      type='password' 
                      value={password}
+                     pattern="[a-zA-Z0-9-]+"
+                     required
                      name='password'
                      placeholder='Password'
                      onChange={(e) => setPassword(e.currentTarget.value)} />
