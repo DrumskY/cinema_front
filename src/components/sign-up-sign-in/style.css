@@ -33,7 +33,7 @@ p, div {
     min-height: 400px;
     padding: 20px 40px;
     border-radius: 6px;
-    box-shadow: 0px 0px 40px rgb(48, 48, 48);
+    box-shadow: 0px 0px 8px rgb(48, 48, 48);
     background-color: #182131;
   }
   
@@ -79,7 +79,7 @@ p, div {
     color: #bbb;
   }
   
-  button {
+  .sign-in-up {
     min-width: 100%;
     cursor: pointer;
     margin-right: 0.25em;
@@ -91,7 +91,7 @@ p, div {
     color: #fefefe;
   }
   
-  button:hover {
+  .sign-in-up:hover {
     background-color: rgb(8, 75, 80);
     color: #fefefe;
   }

@@ -21,10 +21,11 @@ const Login = () => {
          },
        })
          .then(({ data, status }) => {
-           console.log(data.user.name);
+           console.log(data.user);
            if (status === 200) {
              window.localStorage.setItem("accessToken", data.token);
-             window.localStorage.setItem("username", data.user.name)
+             window.localStorage.setItem("userId", data.user.id);
+             window.localStorage.setItem("username", data.user.name);
              console.log("Log in success");
              setLogged(true);
              navigate("/");
@@ -65,7 +66,7 @@ const Login = () => {
                      onChange={(e) => setPassword(e.currentTarget.value)} />
                 </div>              
                 <div className='submit'>
-                   <button type='submit'>Sign In</button>
+                   <button className='sign-in-up' type='submit'>Sign In</button>
                 </div>
            </form>
        </div>

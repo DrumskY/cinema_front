@@ -18,6 +18,10 @@ Link {
     background-color: #182131;
 }
 
+.header Link {
+    text-decoration: none;
+}
+
 .login {
     position: absolute;
     right: 100px;
@@ -46,6 +50,22 @@ Link {
     box-shadow: 0px 0px 4px black, 0px 0px 4px black;
 }
 
+.repertoire-link {
+    position: absolute;
+    width: 4.5%;
+    top: 30px;
+    right: 400px;
+    font-size: 1rem;
+    color: #FFF;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.repertoire-link:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 4px black, 0px 0px 4px black;
+}
+
 .logo {
     width: 10%;
     font-size: 2rem;
@@ -65,6 +85,10 @@ Link {
     filter: blur(10px), brightness(0);
     animation: flicker 5s linear forwards;
     animation-delay: 2s;
+}
+
+.link-logo {
+    text-decoration: none;
 }
 
 @keyframes flicker {
@@ -111,7 +135,7 @@ Link {
 }
 
 .form_container {
-    width: 100%;
+    width: 50%;
     display: flex;
     position: relative;
     left: -4%;
@@ -120,7 +144,7 @@ Link {
 } 
     
 .search_input {
-    width: 50%;
+    width: 100%;
     padding: 12px 24px;
     display: flex;
     align-items: center;

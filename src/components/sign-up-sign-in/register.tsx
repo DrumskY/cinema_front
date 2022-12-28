@@ -104,7 +104,7 @@ const Register = () => {
                      onChange={(e) => setPassword(e.currentTarget.value)} />
                </div>              
                <div className='submit'>
-                  <button type='submit'>Register Me</button>
+                  <button className='sign-in-up' type='submit'>Register Me</button>
                </div>
           </form>
       </div>

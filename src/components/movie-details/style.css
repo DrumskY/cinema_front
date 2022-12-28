@@ -1,0 +1,175 @@
+.movie-details-contener {
+    position:relative;
+    top: 5em;
+    width: 100%;
+    height: 50vh;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.imagedesc {
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.movie-details-flex-contener {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: flex-start;
+}
+
+.image-movie-details {
+    display: flex;
+    margin-left: 5%;
+    margin-top: 6.5%;
+    width: 200px;
+    height: auto;
+}
+
+.movie-details-desc {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: auto;
+}
+
+.description {
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.film-info {
+    display: flex;
+    width: 50%;
+}
+
+.film-info div {
+    width: 25%;
+    flex-direction: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-top: 10%;
+    color: black;
+}
+
+.user-comment {
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 1.5%;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: #182131;
+}
+
+.username-and-edit {
+    display: flex;
+}
+
+.delete-comment {
+    height: 20px;
+    z-index: 5;
+    width: auto;
+}
+
+.delete-comment img {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+}
+
+.user-comment div h3 {
+    padding-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.add-comment {
+    width: 100%;
+}
+
+.add-comment form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+    z-index: 2;
+}
+
+.add-comment form {
+    width: 100%;
+}
+
+.add-comment h4 {
+    justify-content: center;
+    display: flex;
+}
+
+.delete-comment {
+    position: relative;
+    right: 0;
+}
+
+.movie-details-link {
+    text-decoration: none;
+    color: white;
+}
+
+.movie-details-link:hover {
+    color: grey;
+}
+
+.button{
+    width: 100%;
+    right: 0;
+}
+
+.button-submit-comment {
+    width: 20%;
+    cursor: pointer;
+    padding:  0.938em;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(15, 117, 124);
+    color: #fefefe;
+    position: relative;
+    right: -80%;
+    bottom: 100%;
+    z-index: 5;
+}
+  
+.button-submit-comment:hover {
+    background-color: rgb(8, 75, 80);
+    color: #fefefe;
+}
+
+.react-confirm-alert {
+    margin-left: 35%;
+}
+

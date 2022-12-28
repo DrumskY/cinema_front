@@ -1,0 +1,89 @@
+a {
+    text-decoration: none;
+}
+.repertoire-container {
+    display: flex;
+    position:relative;
+    flex-direction: column;
+    align-items: center;
+    top: 3em;
+    height: 30vh;
+    width: 100%;
+    font-size: 2em;
+    color: white;
+    border-bottom: 1px solid gray;
+}
+
+.week {
+    display: flex;
+    width: 60%;
+    height: 20%;
+    box-sizing: border-box;
+}
+
+.week div:hover {
+    cursor: pointer;
+    color: rgb(0, 238, 255);
+}
+
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+}
+
+.today {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.repertoire-films {
+    margin-top: 8%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.repertoire-simple-film {
+    border-bottom: 1px solid grey;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+}
+
+.movie-repertoire-info {
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+
+.seance-time-container {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+}
+
+.seance-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 10%;
+    background-color: #182131;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.seance-time-link {
+    text-decoration: none;
+
+}
+.seance-time-link:hover {
+    color: rgb(0, 238, 255);
+}

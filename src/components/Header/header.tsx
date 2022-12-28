@@ -37,6 +37,7 @@ const Header = () => {
         if(accessToken) {
             window.localStorage.removeItem("accessToken");
             window.localStorage.removeItem("username");
+            window.localStorage.removeItem("userId");
             setLogged(false);
             navigate("/");
         }
@@ -72,7 +73,8 @@ const Header = () => {
 
     return(
         <div className='header'>
-            <Link to={"/"}><div className='logo' data-text="CINEMA">CINEMA</div></Link>
+            <Link to={"/"} className='link-logo'><div className='logo' data-text="CINEMA">CINEMA</div></Link>
+            <Link to={"/repertoire"}><div className='repertoire-link'>Repertuar</div></Link>
             <div className="search_container">
                 <form onSubmit={handleSubmit} className="form_container">
                     <input
