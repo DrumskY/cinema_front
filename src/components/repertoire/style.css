@@ -64,6 +64,7 @@ a {
 
 .seance-time-container {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     height: auto;
     width: 100%;
@@ -71,10 +72,11 @@ a {
 
 .seance-time {
     display: flex;
+    flex-grow: 0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-width: 10%;
+    width: 100px;
     background-color: #182131;
     margin: 10px;
     border-radius: 15px;

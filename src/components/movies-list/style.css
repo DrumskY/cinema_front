@@ -19,7 +19,7 @@
     border-radius: 5%;
     opacity: 0.75;
     width: 100%;
-    height: auto;
+    height: 320px;
     cursor: pointer;
 }
 
@@ -30,7 +30,8 @@
 
 
 .films div{
-    display: inline-block;
+    display: flex;
+    height: 330px;
     flex-grow: 1;
     margin: 5px;
     box-sizing: border-box;
