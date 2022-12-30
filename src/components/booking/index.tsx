@@ -1,4 +1,5 @@
 import axios from 'axios';
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './style.css';
@@ -65,6 +66,10 @@ const Booking = () => {
         )
     }
 
+    const bookSeats = () => {
+
+    };
+
     console.log(seanceDetails)
 
     console.log("Wybrane miejsca: "+selected);
@@ -93,20 +98,31 @@ const Booking = () => {
             </div>
 
             <div className='armchairs-container'>
-                <div className='simple-chair'></div>
-                {seanceDetails.seatAtTheSeance.map((chairs, index) => (
-                    // index % 2 === 0 ? (
-                        <>
-                            <div className={selected.includes(chairs.cinemaArmchair.cinemaArmchairId) ? 'selected-chair' : 'simple-chair'} 
-                            onClick={() => handleClick(chairs)} key={chairs.cinemaArmchair.cinemaArmchairId}>
-                            <p>{seatNumber++}</p>
-                        </div>
-                        {index % 2 === 0 && (
-                            <div className='hidden'></div>
-                        )}
-                            
-                    </>
-                ))}
+                {seanceDetails.seatAtTheSeance.map((chairs, index) => {
+                    const isChairSelected = selected.includes(chairs.cinemaArmchair.cinemaArmchairId)
+                    const isChairReserverd = Boolean(chairs.reservationNum)
+                        return <>
+                            <button className={clsx("simple-chair", isChairSelected && "selected-chair", isChairReserverd && "reserved-chair")}
+                            onClick={() => handleClick(chairs)} key={chairs.cinemaArmchair.cinemaArmchairId}
+                            disabled={isChairReserverd}>
+                                {/* <p>{seatNumber++}</p> */}
+                                <p>{chairs.SeatingNumber}</p>
+                            </button>
+                            {index % 2 === 0 && (
+                                <div className='hidden'></div>
+                            )}
+                        </>
+                })}
+            </div>
+            <div className='information'>
+                <button className='information-button-simple' disabled><p>Wolne miejsca</p></button>
+                <button className='information-button-selected' disabled><p>Wybrane miejsca</p></button>
+                <button className='information-button-reserved' disabled><p>Zarezerwowane</p></button>
+            </div>
+
+            <div className='reserve'>
+                <p>Ilość wybranych miejsc: {selected.length}</p>
+                <button className='reserve-button'><h3>Zarezerwuj bilety</h3></button>
             </div>
         </div>
     )
