@@ -1,5 +1,5 @@
 .wrapper-profil{
-    height: 65vh;
+    height: auto;
     width: 100%;
     padding-top: 15%;
     display: flex;
@@ -12,10 +12,10 @@
 .profil-wrapper{
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: auto;
     max-width: 80%;
     min-width: 100px;
-    min-height: 400px;
+    min-height: 600px;
     padding: 20px 40px;
     border-radius: 6px;
     box-shadow: 0px 0px 40px rgb(48, 48, 48);
@@ -35,4 +35,46 @@
 
 .personally-user-info{
     width: 50%;
+}
+
+.profil-info {
+    height: 10%;
+}
+
+.reservation-data {
+    display: flex;
+    max-height: 60px;
+}
+
+.reservation-info {
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.film-info-reservation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.reserved {
+    margin: 20px;
+    display: flex;
+    flex-basis: 20%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reserved-column {
+    display: flex;
+    flex-basis: 20%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

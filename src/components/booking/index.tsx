@@ -1,7 +1,9 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './style.css';
 
 interface SeanceType {
@@ -35,10 +37,17 @@ interface MovieType {
 
 const Booking = () => {
     let { seanceId } = useParams();
-    let seatNumber = 1
+    let price = 0;
     const [selected, setSelected] = useState<number[]>([]);
+    const [selectedChair, setSelectedChair] = useState<number[]>([]);
     const [seanceDetails, setSeanceDetails] = useState<SeanceType | null>(null)
+    const userIdLocalStorage = window.localStorage.getItem("userId");
+    // const [isReservedChair, setIsReservedChair] = useState(false);
 
+    // let seanceIdInt: number = Number(seanceId);
+    
+    // const userIdLocalStorageInt = (userIdLocalStorage);
+    
     const handleClick = (chairs: ArmchairType) => {
         setSelected((prevSelected: number[]) => {
             if (prevSelected.includes(chairs.cinemaArmchair.cinemaArmchairId)) {
@@ -47,8 +56,27 @@ const Booking = () => {
               return [...prevSelected, chairs.cinemaArmchair.cinemaArmchairId];
             }
           });
+          setSelectedChair((prevSelected: number[]) => {
+            if (prevSelected.includes(chairs.SeatingNumber)) {
+              return prevSelected.filter((id: number) => id !== chairs.SeatingNumber);
+            } else {
+              return [...prevSelected, chairs.SeatingNumber];
+            }
+          });
+        // setSelectedChair(chairs.SeatingNumber)
         console.log(chairs.cinemaArmchair.cinemaArmchairId);
+        // console.log(selectedChair);
     }
+
+    // const handleClick = (chairs: ArmchairType) => {
+    //     setSelected((prevSelected: number[]) => {
+    //         if (prevSelected.includes(chairs.SeatingNumber)) {
+    //           return prevSelected.filter((id: number) => id !== chairs.SeatingNumber);
+    //         } else {
+    //           return [...prevSelected, chairs.SeatingNumber];
+    //         }
+    //       });
+    // }
     
 
     useEffect(()=>{
@@ -67,12 +95,36 @@ const Booking = () => {
     }
 
     const bookSeats = () => {
-
+        axios({
+            method: "POST",
+            url: `${process.env.REACT_APP_SERVER_BASE}booking/reserve`,
+            data: {
+                userId: Number(userIdLocalStorage),
+                seanceId: Number(seanceId),
+                seatReserved: selected,
+            },
+          })
+            .then(({ data, status }) => {
+              console.log("data: "+data);
+              if (status === 200) {
+                console.log("Correctly booked!");
+              }
+            })
+            .catch((e: AxiosError) => {
+              if (e.response) {
+                console.log(e.response.data);
+              }
+            });
+            toast("Super udało się zarezerwować bilety!");
+        window.setTimeout(function(){location.reload()},2000)
+        // window.location.reload()
     };
 
     console.log(seanceDetails)
 
-    console.log("Wybrane miejsca: "+selected);
+    console.log("Wybrane miejsca po id: "+selected);
+    console.log("Wybrane konkretne miejsca miejsca: "+selectedChair);
+    // setSelectedChair()
     return (
         <div className="contener-for-booking">
 
@@ -105,7 +157,6 @@ const Booking = () => {
                             <button className={clsx("simple-chair", isChairSelected && "selected-chair", isChairReserverd && "reserved-chair")}
                             onClick={() => handleClick(chairs)} key={chairs.cinemaArmchair.cinemaArmchairId}
                             disabled={isChairReserverd}>
-                                {/* <p>{seatNumber++}</p> */}
                                 <p>{chairs.SeatingNumber}</p>
                             </button>
                             {index % 2 === 0 && (
@@ -121,8 +172,13 @@ const Booking = () => {
             </div>
 
             <div className='reserve'>
-                <p>Ilość wybranych miejsc: {selected.length}</p>
-                <button className='reserve-button'><h3>Zarezerwuj bilety</h3></button>
+                <p>Cena za jeden bilet 19 złotych. Ilość wybranych miejsc: {selected.length}</p>
+                <p>Wybrane miejsca: <h4>{selectedChair + " "}</h4>
+                Cena: {price = selected.length * 19} złotych</p>
+                <>
+                    <button className='reserve-button' onClick={bookSeats}><h3>Zarezerwuj bilety</h3></button>
+                    <ToastContainer />
+                </>
             </div>
         </div>
     )
