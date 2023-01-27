@@ -14,6 +14,7 @@ const Header = () => {
     const navigate = useNavigate();
     const accessToken = window.localStorage.getItem("accessToken");
     const usernameLocalStorage = window.localStorage.getItem("username");
+    const roleLocalStorage = window.localStorage.getItem("role");
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
@@ -38,6 +39,7 @@ const Header = () => {
             window.localStorage.removeItem("accessToken");
             window.localStorage.removeItem("username");
             window.localStorage.removeItem("userId");
+            window.localStorage.removeItem("role");
             setLogged(false);
             navigate("/");
         }
@@ -74,7 +76,13 @@ const Header = () => {
     return(
         <div className='header'>
             <Link to={"/"} className='link-logo'><div className='logo' data-text="CINEMA">CINEMA</div></Link>
-            <Link to={"/repertoire"}><div className='repertoire-link'>Repertuar</div></Link>
+            <>
+                {logged && roleLocalStorage === "ADMIN" ? (
+                    <div className='admin-panel'><Link to={"/admin"}>Panel Admina</Link></div>
+                ) : (
+                    console.log("Panel admina jest niedostępny")
+                )}
+            </>
             <div className="search_container">
                 <form onSubmit={handleSubmit} className="form_container">
                     <input
@@ -100,27 +108,28 @@ const Header = () => {
                        </>
                 </form>
             </div>
+            <div className='repertoire-link'><Link to={"/repertoire"}>Repertuar</Link></div>
             {logged ? (
                 <>
                     {userProfile.map((profile) => (
-                        <div key={profile.userId}>
-                            <Link to={"/profil"}>
-                                <div className='login'>
+                        <div key={profile.userId} className='user-logged'>
+                            <div className='login'>
+                                <Link to={"/profil"}>
                                     {profile.username}
-                                </div>
-                            </Link>
-                            <Link to={"/"}>
-                                <div className='register' onClick={handleLogOut}>
-                                    Sign Out
-                                </div>
-                            </Link>
+                                </Link>
+                            </div>
+                            <div className='register' onClick={handleLogOut}>
+                                <Link to={"/"}>
+                                    Wyloguj
+                                </Link>
+                            </div>
                          </div>
                      ))} 
                 </>
             ) : (
                 <>
-                    <Link to={"/login"}><div className='login'>Login</div></Link>
-                    <Link to={"/register"}><div className='register'>Sign Up</div></Link>
+                    <div className='login'> <Link to={"/login"}>Zaloguj</Link></div>
+                    <div className='register'><Link to={"/register"}>Zarejestruj</Link></div>
                 </>
             )}
         </div>

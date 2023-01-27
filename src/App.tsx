@@ -12,6 +12,7 @@ import { ProfileType } from './types/user';
 import Repertoire from './components/repertoire/index';
 import Booking from './components/booking';
 import Badrequest from './components/404';
+import Administration from './components/admin-panel';
 
 function App() {
   const [isFetching, setIsFetching] = useState(true);
@@ -29,6 +30,7 @@ function App() {
         <Route path='/repertoire' element={<Repertoire />} />
         <Route path='/booking/:seanceId' element={<Booking />} />
         <Route path='/movies/:id' element = {<MovieDetails />} />
+        <Route path='/admin' element = {<Administration />} />
         <Route path='*' element = {<Badrequest />} />
       </Routes>
     </GlobalContext.Provider>

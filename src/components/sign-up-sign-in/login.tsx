@@ -26,6 +26,7 @@ const Login = () => {
              window.localStorage.setItem("accessToken", data.token);
              window.localStorage.setItem("userId", data.user.id);
              window.localStorage.setItem("username", data.user.name);
+             window.localStorage.setItem("role", data.user.role);
              console.log("Log in success");
              setLogged(true);
              navigate("/");

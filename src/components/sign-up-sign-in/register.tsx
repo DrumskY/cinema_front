@@ -39,13 +39,12 @@ const Register = () => {
             if (e.response && e.response.data) {
                console.log(e.response.data);
              }
-             console.log("Sadge");
          });
    };
 
      return (
        <div className="wrapper">
-         <div className='form-wrapper'>
+         <div className='form-wrapper-register'>
             <h2>Sign Up</h2>
             <form onSubmit={registerHandler} >
                <div className='username'>

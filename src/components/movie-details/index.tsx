@@ -12,6 +12,7 @@ const MovieDetails = () => {
     const [movieDetails, setMovieDetails] = useState<MovieDetailType | null>(null);
     const userIdLocalStorage = window.localStorage.getItem("userId");
     const usernameLocalStorage = window.localStorage.getItem("username");
+    const roleLocalStorage = window.localStorage.getItem("role");
     const accessToken = window.localStorage.getItem("accessToken");
     const commentId = window.localStorage.getItem("commentId");
 
@@ -86,7 +87,6 @@ const MovieDetails = () => {
                 if (e.response && e.response.data) {
                     console.log(e.response.data);
                 }
-                    console.log("Sadge");
             });
     };
     
@@ -161,7 +161,7 @@ const MovieDetails = () => {
                         <div className='username-and-edit'>
                             <h3>{comment.author.username}</h3>
                             <>
-                                {logged && comment.author.username === usernameLocalStorage ? (
+                                {logged && comment.author.username === usernameLocalStorage || roleLocalStorage === "ADMIN"? (
                                     <div className='delete-comment'>
                                         <img 
                                             src={require("../../assets/cancel.png")} 
