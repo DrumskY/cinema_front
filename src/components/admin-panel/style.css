@@ -37,7 +37,9 @@
 .direction,
 .image,
 .imgdesc,
-.rating {
+.rating,
+.movieseancetime,
+.movieseancedata {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
@@ -139,4 +141,17 @@
   
   input[type=file]::file-selector-button:hover {
     background: rgb(8, 75, 80);
+  }
+
+  .search_ul_seance {
+    list-style-type: none;
+  }
+
+  .movie_search li{
+    margin: 5px;
+  }
+
+  .movie_search li:hover{
+    color: var(--var-color);
+    cursor: pointer;
   }

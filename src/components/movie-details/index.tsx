@@ -54,7 +54,6 @@ const MovieDetails = () => {
                     if (e.response && e.response.data) {
                         console.log(e.response.data);
                     }
-                        console.log("Sadge");
                 });
                 window.location.reload()
                 setIsStart(false)

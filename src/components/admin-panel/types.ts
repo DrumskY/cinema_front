@@ -1,10 +1,4 @@
-export interface MovieAdminType {
+export interface SearchTermTypes {
+  movieId: number;
   name: string;
-  type: string;
-  movietime: string;
-  direction: string;
-  image: string;
-  imagedesc: string;
-  rating: number;
-  description: string;
 }

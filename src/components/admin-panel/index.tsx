@@ -1,6 +1,7 @@
 import axios, { AxiosError } from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.css';
+import { SearchTermTypes } from './types';
 
 const Administration = () => {
     const [activeDiv, setActiveDiv] = useState("");
@@ -13,6 +14,13 @@ const Administration = () => {
     const [description, setDescription] = useState("");
     const [image, setImage] = useState<File | null>(null);
     const [imagedesc, setImagedesc] = useState<File | null>(null);
+
+    const [movieName, setMovieName] = useState("");
+    const [cinemaHallId, setCinemaHallId] = useState("");
+    const [movieSeanceData, setMovieSeanceData] = useState("");
+    const [movieSeanceTime, setMovieSeanceTime] = useState("");
+    const [results, setResults] = useState<SearchTermTypes[]>([]);
+    const [movieId, setMovieId] = useState(Number);
 
     const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setImage(e.target.files?.[0] ? e.target.files[0] : null);
@@ -90,6 +98,53 @@ const Administration = () => {
 
     const handleClick = (divName: string) => {
         setActiveDiv(divName);
+    };
+
+    useEffect(()=>{
+      fetch(`${process.env.REACT_APP_SERVER_BASE}movies/search?searchParam=${movieName}`)
+            .then((res) => res.json())
+            .then((data) => setResults(data));
+    },[movieName])
+
+    const handleMovieId = (movieId:number) => {
+      setMovieId(movieId)
+    }
+    console.log("Id wybranego filmu to: " + movieId)
+    console.log(movieSeanceData)
+    console.log(movieSeanceTime)
+    console.log(cinemaHallId)
+
+    const addSeanceHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+    
+      axios({
+        method: 'POST',
+        url: `${process.env.REACT_APP_SERVER_BASE}admin/set-screening`,
+        headers: {
+            Authorization: `Bearer ${accessToken}`
+        },
+        data: {
+            movieId: movieId,
+            cinemaHallid: cinemaHallId,
+            seanceData: movieSeanceData,
+            seanceTime: movieSeanceTime
+        },
+    })
+        .then(({data}) => {
+            if (data.ok) {
+                console.log("Seance success added");
+            }
+            else {
+                console.log(data);
+                window.location.reload()
+            }
+        })
+        .catch((e: AxiosError) => {
+            if (e.response && e.response.data) {
+                console.log(e.response.data);
+            }
+                console.log("Sadge");
+        });
     };
 
     return (
@@ -202,7 +257,67 @@ const Administration = () => {
             )}
             {activeDiv === "repertuar" && (
                 <div>
-                    This is the content for the "Dodaj repertuar" div
+                       <div className='form-wrapper-admin'>
+             <h2>Dodaj Repertuar</h2>
+             <form onSubmit={addSeanceHandler}>
+                <div className='name'>
+                   <label htmlFor="name">Nazwa Filmu</label>
+                   <input 
+                     className="search_input_seance" 
+                     type='text'
+                     value={movieName}
+                     name='name'
+                     placeholder='Nazwa filmu'
+                     onChange={(e) => setMovieName(e.currentTarget.value)}
+                      />
+                       <>
+                          <ul className='search_ul_seance'>
+                            {results.map(result => (
+                              <div className='movie_search' key={result.movieId}>
+                                  <li className='search_li_seance' onClick={() => handleMovieId(result.movieId)}>{result.name}</li>
+                              </div>
+                            ))}
+                          </ul>
+                       </>
+                </div>
+                <div className='type'>
+                   <label htmlFor="type">Numer sali (od 1 do 3)</label>
+                   <input 
+                     type='text' 
+                     value={cinemaHallId}
+                     required
+                     name='type'
+                     placeholder='Wpisz numer sali'
+                     onChange={(e) => setCinemaHallId(e.currentTarget.value)}
+                     />
+                </div>
+                <div className='movieseancedata'>
+                   <label htmlFor="movieseancedata">Data seansu (użyj wyrażenia DD/MM/YYY)</label>
+                   <input 
+                     type='text' 
+                     value={movieSeanceData}
+                     required
+                     name='movieseancedata'
+                     placeholder='Wpisz datę rozpoczęcia seansu'
+                     onChange={(e) => setMovieSeanceData(e.currentTarget.value)}
+                     />
+                </div> 
+                <div className='movieseancetime'>
+                   <label htmlFor="movieseancetime">Godzina rozpoczęcia seansu (użyj wyrażenia HH:MM)</label>
+                   <input 
+                     type='text' 
+                     value={movieSeanceTime}
+                     required
+                     name='movieseancetime'
+                     placeholder='Wpisz godzinę rozpoczęcia sensu'
+                     onChange={(e) => setMovieSeanceTime(e.currentTarget.value)}
+                     />
+                </div>            
+                <div className='submit'>
+                   <button className='save-movie-btn' type='submit'>Zapisz</button>
+                </div>
+           </form>
+           </div>
                 </div>
             )}
             </div>
