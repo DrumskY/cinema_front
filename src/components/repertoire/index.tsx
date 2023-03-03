@@ -86,8 +86,9 @@ const Repertoire = () => {
                 {filterMovies.map((movies) => (
                     <div key={movies.movieId} className="repertoire-simple-film">
                         
-                        <img src={`${process.env.REACT_APP_SERVER_BASE}${movies.image}`} alt={movies.name} />
-                        
+                        <div>
+                            <img src={`${process.env.REACT_APP_SERVER_BASE}${movies.image}`} alt={movies.name} />
+                        </div>
                         <div className="movie-repertoire-info">
                             <h2>{movies.name}</h2>
                             <p><strong>Gatunek:</strong> {movies.type} | <strong>Czas seansu:</strong> {movies.movietime} minut</p>

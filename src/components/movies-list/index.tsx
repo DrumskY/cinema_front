@@ -32,10 +32,10 @@ const MoviesList = () => {
 
   return (
     <>
-    <div className="information">
-    <h2 className="all-film-title">Wszystkie filmy w repertuarze:</h2>
-    <div className="aside-button-left" onClick={goToNext}><img src={require("../../assets/left.png")} alt="LEFT"></img></div>
-    <div className="aside-button-right" onClick={goToPrevious}><img src={require("../../assets/right.png")} alt="RIGHT"></img></div>
+    <div className="information-all-film">
+      <div><h2 className="all-film-title">Wszystkie filmy:</h2></div>
+      <div className="aside-button-left" onClick={goToNext}><img src={require("../../assets/left.png")} alt="LEFT" /></div>
+      <div className="aside-button-right" onClick={goToPrevious}><img src={require("../../assets/right.png")} alt="RIGHT" /></div>
     </div>
     <div className="favorites-films">
       <div className="films">

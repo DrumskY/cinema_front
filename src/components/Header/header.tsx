@@ -74,6 +74,7 @@ const Header = () => {
     }, [logged]);
 
     return(
+        <>
         <div className='header'>
             <Link to={"/"} className='link-logo'><div className='logo' data-text="CINEMA">CINEMA</div></Link>
             <>
@@ -91,28 +92,14 @@ const Header = () => {
                         placeholder="Search movie"
                         value={searchTerm}
                         onChange={handleChange} />
-                        <>
-                            {checkFocus ? (
-                                <ul className='search_ul'>
-                                {results.map(result => (
-                                    <Link className='movie_link' to={`/movies/${result.movieId}`} key={result.movieId}>
-                                        <div className='n'>
-                                            <li className='search_li'>{result.name}</li>
-                                        </div>
-                                    </Link>
-                                ))}
-                                </ul>
-                            ) : (
-                                console.log("Input is not focused")
-                            )}
-                       </>
+                   
                 </form>
             </div>
             <div className='repertoire-link'><Link to={"/repertoire"}>Repertuar</Link></div>
             {logged ? (
-                <>
+                <div>
                     {userProfile.map((profile) => (
-                        <div key={profile.userId} className='user-logged'>
+                        <div key={profile.userId} className='sign'>
                             <div className='login'>
                                 <Link to={"/profil"}>
                                     {profile.username}
@@ -125,14 +112,32 @@ const Header = () => {
                             </div>
                          </div>
                      ))} 
-                </>
+                </div>
             ) : (
-                <>
+                <div className='sign'>
                     <div className='login'> <Link to={"/login"}>Zaloguj</Link></div>
                     <div className='register'><Link to={"/register"}>Zarejestruj</Link></div>
-                </>
+                </div>
             )}
         </div>
+        <div className='search_ul'>
+            <>
+                {checkFocus ? (
+                    <ul>
+                        {results.map(result => (
+                            <li className='search_li'>
+                                <Link className='movie_link' to={`/movies/${result.movieId}`} key={result.movieId}>
+                                    {result.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    console.log("Input is not focused")
+                )}
+            </>
+        </div>
+        </>
     )
 };
 

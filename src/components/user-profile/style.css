@@ -1,7 +1,8 @@
 .wrapper-profil{
+    color: white;
     height: auto;
     width: 100%;
-    padding-top: 15%;
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -56,6 +57,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     width: 100%;
     height: auto;
 }
@@ -63,7 +65,7 @@
 .reserved {
     margin: 20px;
     display: flex;
-    flex-basis: 20%;
+    /* flex-basis: 20%; */
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
@@ -72,7 +74,7 @@
 
 .reserved-column {
     display: flex;
-    flex-basis: 20%;
+    /* flex-basis: 20%; */
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;

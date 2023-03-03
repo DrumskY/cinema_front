@@ -1,63 +1,49 @@
 .movie-details-contener {
+    color: whitesmoke;
     position:relative;
-    top: 5em;
     width: 100%;
-    height: 50vh;
+    height: 500px;
     max-width: 100%;
     overflow: hidden;
 }
 
 .imagedesc {
-    position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    opacity: 0.3;
     z-index: 1;
 }
 
 .movie-details-flex-contener {
-    position: relative;
-    z-index: 3;
     display: flex;
-    flex-direction: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
 }
 
 .image-movie-details {
-    display: flex;
-    margin-left: 5%;
-    margin-top: 6.5%;
-    width: 200px;
-    height: auto;
+    width: 30%;
 }
 
 .movie-details-desc {
-    margin-top: 4%;
     display: flex;
+    align-items: center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: auto;
-}
-
-.description {
     width: 50%;
-    justify-content: center;
-    align-items: center;
+    text-shadow: 0px 0px 15px rgb(0, 0, 0);
 }
 
 .film-info {
     display: flex;
-    width: 50%;
-}
-
-.film-info div {
-    width: 25%;
-    flex-direction: flex-start;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    text-shadow: 0px 0px 15px rgb(0, 0, 0);
 }
 
 .comment-container {
@@ -65,8 +51,8 @@
     flex-direction: column;
     width: 100%;
     height: auto;
-    margin-top: 10%;
-    color: black;
+    margin-top: 2%;
+    color: white;
 }
 
 .user-comment {
@@ -82,6 +68,8 @@
 
 .username-and-edit {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .delete-comment {
@@ -91,18 +79,11 @@
 }
 
 .delete-comment img {
-    display: block;
-    position: absolute;
-    top: 5px;
-    right: 15px;
+    margin-right: 20px;
+    box-sizing: border-box;
     height: 20px;
     width: auto;
     cursor: pointer;
-}
-
-.user-comment div h3 {
-    padding-bottom: 15px;
-    box-sizing: border-box;
 }
 
 .add-comment {
@@ -171,5 +152,16 @@
 
 .react-confirm-alert {
     margin-left: 35%;
+}
+
+@media screen and (max-width: 700px) {
+    .image-movie-details{
+        display: none;
+    }
+
+    .movie-details-desc {
+        width: 100%;
+        padding: 10px;
+    }
 }
 

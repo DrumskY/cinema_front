@@ -118,16 +118,13 @@ const MovieDetails = () => {
         <>
             <div className='movie-details-contener'>
                 <div className='imagedesc' style={{backgroundImage: `url(${process.env.REACT_APP_SERVER_BASE}/image/${movieDetails.imagedesc})`}}>
-                </div>
                 <div className='movie-details-flex-contener'>
                     <div className='image-movie-details'>
                         <img src={`${process.env.REACT_APP_SERVER_BASE}${movieDetails.image}`} alt={movieDetails.name} />
                     </div>
                     <div className='movie-details-desc'>
-                        <div>
-                            <h1>{movieDetails.name}</h1>
-                        </div>
                         <div className='description'>
+                            <h1>{movieDetails.name}</h1>
                             <p>{movieDetails.description}</p>
                         </div>
                         <div className='film-info'>
@@ -139,8 +136,6 @@ const MovieDetails = () => {
                                 <h3>Ocena:</h3>
                                 <p>{movieDetails.rating}</p>
                             </div>
-                        </div>
-                        <div className='film-info'>
                             <div>
                                 <h3>Czas seansu:</h3>
                                 <p>{movieDetails.movietime} minut</p>
@@ -152,13 +147,14 @@ const MovieDetails = () => {
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
 
             <div className='comment-container'>
                 {movieDetails && movieDetails.movieComment.map(comment => (
                     <div className='user-comment' key={comment.commentId}>
                         <div className='username-and-edit'>
-                            <h3>{comment.author.username}</h3>
+                            <div><h3>{comment.author.username}</h3></div>
                             <>
                                 {logged && comment.author.username === usernameLocalStorage || roleLocalStorage === "ADMIN"? (
                                     <div className='delete-comment'>
@@ -166,7 +162,6 @@ const MovieDetails = () => {
                                             src={require("../../assets/cancel.png")} 
                                             alt="X" 
                                             onClick={()=>{
-                                                // setCommId(comment.commentId)
                                                 window.localStorage.setItem("commentId", String(comment.commentId));
                                                 handleClick()
                                             }}/>
@@ -195,7 +190,7 @@ const MovieDetails = () => {
                                     <button 
                                         className='button-submit-comment' 
                                         type='submit' 
-                                        onClick={() => {window.location.reload()}}>Wyślij komentarz</button>
+                                        onClick={() => {window.location.reload()}}>Wyślij</button>
                                 </div>
                             </form>
                         </div>

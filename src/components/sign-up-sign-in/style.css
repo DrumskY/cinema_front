@@ -3,9 +3,9 @@ p, div {
   }
     
   .wrapper {
-    height: 70vh;
+    /* height: 70vh; */
     width: 100%;
-    padding-top: 15%;
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,9 +14,8 @@ p, div {
   }
 
   .wrapper-login {
-    height: 30vh;
     width: 100%;
-    padding-top: 25%;
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,10 +26,7 @@ p, div {
   .form-wrapper-register {
     display: flex;
     flex-direction: column;
-    width: 280px;
-    max-width: 100%;
-    min-width: 100px;
-    min-height: 400px;
+    width: 250px;
     padding: 20px 40px;
     border-radius: 6px;
     box-shadow: 0px 0px 8px rgb(48, 48, 48);
@@ -40,10 +36,7 @@ p, div {
   .form-wrapper {
     display: flex;
     flex-direction: column;
-    width: 280px;
-    max-width: 100%;
-    min-width: 100px;
-    min-height: 400px;
+    width: 250px;
     padding: 20px 40px;
     border-radius: 6px;
     box-shadow: 0px 0px 8px rgb(48, 48, 48);
@@ -51,6 +44,16 @@ p, div {
   }
   
   .form-wrapper > h2 {
+    display: flex;
+    justify-content: center;
+    font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
+    font-size: 2em;
+    font-weight: lighter;
+    margin-top: 0.25em;
+    color: #fff;
+  }
+
+  .form-wrapper-register > h2 {
     display: flex;
     justify-content: center;
     font-family: "Segoe UI", "Ubuntu", "Roboto", "Open Sans", "Helvetica Neue", sans-serif;
@@ -79,13 +82,6 @@ p, div {
     border: 1px solid #d6d1d5;
   }
 
-  /* input:invalid {
-    background-color: ivory;
-    border: none;
-    outline: 2px solid darkred;
-    border-radius: 5px;
-  } */
-  
   input::placeholder {
     font-size: 1.2em;
     font-weight: lighter;
@@ -126,42 +122,4 @@ p, div {
     flex-wrap: wrap;
     margin-bottom: 20px;
     box-sizing: border-box;
-  }
-
-  @media screen and (max-width: 800px) {
-    
-    .form-wrapper {
-      margin-top: 25%
-    }
-  }
-
-  @media screen and (max-width: 600px) {
-    .wrapper {
-      height: 80vh;
-    }
-    .form-wrapper-register {
-      margin-top: 5%
-    }
-
-    .form-wrapper {
-      margin-top: 40%
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .form-wrapper-register {
-      margin-top: 10%
-    }
-    .form-wrapper {
-      margin-top: 50%
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    .form-wrapper-register {
-      margin-top: 15%
-    }
-    .form-wrapper {
-      margin-top: 60%
-    }
   }

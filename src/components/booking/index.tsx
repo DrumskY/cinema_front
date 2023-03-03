@@ -42,11 +42,6 @@ const Booking = () => {
     const [selectedChair, setSelectedChair] = useState<number[]>([]);
     const [seanceDetails, setSeanceDetails] = useState<SeanceType | null>(null)
     const userIdLocalStorage = window.localStorage.getItem("userId");
-    // const [isReservedChair, setIsReservedChair] = useState(false);
-
-    // let seanceIdInt: number = Number(seanceId);
-    
-    // const userIdLocalStorageInt = (userIdLocalStorage);
     
     const handleClick = (chairs: ArmchairType) => {
         setSelected((prevSelected: number[]) => {
@@ -63,21 +58,7 @@ const Booking = () => {
               return [...prevSelected, chairs.SeatingNumber];
             }
           });
-        // setSelectedChair(chairs.SeatingNumber)
-        console.log(chairs.cinemaArmchair.cinemaArmchairId);
-        // console.log(selectedChair);
-    }
-
-    // const handleClick = (chairs: ArmchairType) => {
-    //     setSelected((prevSelected: number[]) => {
-    //         if (prevSelected.includes(chairs.SeatingNumber)) {
-    //           return prevSelected.filter((id: number) => id !== chairs.SeatingNumber);
-    //         } else {
-    //           return [...prevSelected, chairs.SeatingNumber];
-    //         }
-    //       });
-    // }
-    
+    } 
 
     useEffect(()=>{
         axios<SeanceType>({
@@ -117,14 +98,8 @@ const Booking = () => {
             });
             toast("Super udało się zarezerwować bilety!");
         window.setTimeout(function(){location.reload()},2000)
-        // window.location.reload()
     };
 
-    console.log(seanceDetails)
-
-    console.log("Wybrane miejsca po id: "+selected);
-    console.log("Wybrane konkretne miejsca miejsca: "+selectedChair);
-    // setSelectedChair()
     return (
         <div className="contener-for-booking">
 

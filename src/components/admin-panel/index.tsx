@@ -92,7 +92,7 @@ const Administration = () => {
                 if (e.response && e.response.data) {
                     console.log(e.response.data);
                 }
-                    console.log("Sadge");
+                    console.log("Err");
             });
     };
 
@@ -109,10 +109,6 @@ const Administration = () => {
     const handleMovieId = (movieId:number) => {
       setMovieId(movieId)
     }
-    console.log("Id wybranego filmu to: " + movieId)
-    console.log(movieSeanceData)
-    console.log(movieSeanceTime)
-    console.log(cinemaHallId)
 
     const addSeanceHandler = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -143,7 +139,7 @@ const Administration = () => {
             if (e.response && e.response.data) {
                 console.log(e.response.data);
             }
-                console.log("Sadge");
+                console.log("Err");
         });
     };
 

@@ -10,23 +10,55 @@ a {
 }
 
 .header {
-    position: fixed;
-    z-index: 5;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     display: flex;
     flex-direction: row;
-    left: 0;
-    width: 100%;
-    height: 9vh;
-    background-color: #182131;
-}
-.header div{
-    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #182131;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 100;
 }
 
-.user-logged div {
+.sign{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+}
+
+.sign div {
+    margin-left: 15px;
+    box-sizing: border-box;
+}
+
+.search_input {
+    padding: 12px 24px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: #575756;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    background-position: 95% center;
+    border-radius: 50px;
+    border: 1px solid #575756;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+    z-index: 5;
 }
 
 .login {
@@ -75,11 +107,8 @@ a {
 
 .logo {
     width: 10%;
-    font-size: 2rem;
+    font-size: 1.9rem;
     color: var(--var-color);
-    position: relative;
-    padding-left: 30px;
-    padding-top: 25px;
     font-weight: bold;
     box-sizing: border-box;
 }
@@ -92,10 +121,6 @@ a {
     filter: blur(10px), brightness(0);
     animation: flicker 5s linear forwards;
     animation-delay: 2s;
-}
-
-.link-logo {
-    text-decoration: none;
 }
 
 @keyframes flicker {
@@ -134,53 +159,14 @@ a {
     }
 }
 
-.search_container {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.form_container {
-    width: 50%;
-    display: flex;
-    position: relative;
-    left: -4%;
-    align-items: center;
-    justify-content: center;
-} 
-    
-.search_input {
-    width: 100%;
-    padding: 12px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    transition: transform 250ms ease-in-out;
-    font-size: 14px;
-    line-height: 18px;
-    color: #575756;
-    background-color: transparent;
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-size: 18px 18px;
-    background-position: 95% center;
-    border-radius: 50px;
-    border: 1px solid #575756;
-    transition: all 250ms ease-in-out;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    z-index: 5;
-}
-
 .search_ul {
-    position: absolute;
-    left: 23%;
-    top: 100%;
-    width: 400px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.search_ul ul {
     list-style-type: none;
-    z-index: 100;
 }
 
 .movie_link {
@@ -188,10 +174,11 @@ a {
 }
 
 .search_li {
+    display: flex;
+    justify-content: center;
     padding: 15px;
     box-sizing: border-box;
-    width: 49%;
-    background-color: #182131;
+    width: 100%;
 }
 
 .search_li:hover {

@@ -1,4 +1,5 @@
 .main-admin {
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,19 +7,12 @@
     width: 100%;
 }
 .contener-admin {
-    padding-top: 7%;
-    margin: 5%;
     box-sizing: border-box;
     width: 50%;
     display: flex;
     flex-direction: row;
-}
-.contener-admin div {
-    display: flex;
-    width: 50%;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .contener-admin div h2:hover {
