@@ -14,7 +14,7 @@ interface MovieType {
 const SearchAsc = () => {
   const [displayedMovies, setDisplayedMovies] = useState<MovieType[]>([]);
   useEffect(() => {
-    fetch("http://localhost:5000/movies/rateasc")
+    fetch(`${process.env.REACT_APP_SERVER_BASE}movies/rateasc`)
       .then((res) => res.json())
       .then((data) => setDisplayedMovies(data));
   }, []);

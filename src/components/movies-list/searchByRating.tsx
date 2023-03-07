@@ -14,7 +14,7 @@ interface MovieType {
 const MoviesListByRating = () => {
   const [displayedMovies, setDisplayedMovies] = useState<MovieType[]>([]);
   useEffect(() => {
-    fetch("http://localhost:5000/movies/rating")
+    fetch(`${process.env.REACT_APP_SERVER_BASE}movies/rating`)
       .then((res) => res.json())
       .then((data) => setDisplayedMovies(data));
   }, []);
