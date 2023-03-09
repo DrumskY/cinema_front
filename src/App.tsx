@@ -1,5 +1,5 @@
 import './App.css';
-import Header from './components/header/header';
+import Header from './components/Header/header';
 import { Routes, Route } from "react-router-dom";
 import Register from './components/sign-up-sign-in/register';
 import GlobalContext from "./context/GlobalContext";

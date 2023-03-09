@@ -19,6 +19,9 @@ const MovieDetails = () => {
     const [isStart, setIsStart] = useState(false)
     const { logged } = useContext(GlobalContext);
     const [comment, setComment] = useState('');
+
+    const [requestNumber, setRequestNumber] = useState(0);
+
     console.log(movieDetails)
     useEffect(()=>{
         axios<MovieDetailType>({
@@ -27,7 +30,7 @@ const MovieDetails = () => {
           })
           .then(({data}) => setMovieDetails(data))
           .catch((err) => console.log(err));
-    },[id])
+    },[requestNumber])
 
     useEffect(()=>{
         if(isStart) {
@@ -42,20 +45,17 @@ const MovieDetails = () => {
                     commentId: commentId, 
                 },
             })
-                .then(({data}) => {
-                    if (data.ok) {
+                .then(({data, status}) => {
+                    if (status === 202) {
                         console.log("Comment success deleted");
-                    }
-                    else {
-                        console.log(data);
-                    }
+                        setRequestNumber((prev) => prev + 1)
+                    }   
                 })
                 .catch((e: AxiosError) => {
                     if (e.response && e.response.data) {
                         console.log(e.response.data);
                     }
                 });
-                window.location.reload()
                 setIsStart(false)
     };
     },[isStart, commentId])
@@ -74,12 +74,10 @@ const MovieDetails = () => {
                 authorCommId: id,
             },
         })
-            .then(({data}) => {
-                if (data.ok) {
+            .then(({data, status}) => {
+                if (status === 201) {
                     console.log("Comment success added");
-                }
-                else {
-                    console.log(data);
+                    setRequestNumber((prev) => prev + 1)
                 }
             })
             .catch((e: AxiosError) => {
@@ -190,7 +188,8 @@ const MovieDetails = () => {
                                     <button 
                                         className='button-submit-comment' 
                                         type='submit' 
-                                        onClick={() => {window.location.reload()}}>Wyślij</button>
+                                        // onClick={() => {window.location.reload()}}>Wyślij</button>
+                                        >Wyślij</button>
                                 </div>
                             </form>
                         </div>

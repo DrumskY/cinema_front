@@ -44,7 +44,7 @@ const Repertoire = () => {
     useEffect(()=>{
         const repertoireAtTheDay = getFullDate(selectedDay)
         console.log(repertoireAtTheDay)
-        fetch(`http://localhost:5000/seance/repertoire?searchParam=${repertoireAtTheDay}`)
+        fetch(`${process.env.REACT_APP_SERVER_BASE}seance/repertoire?searchParam=${repertoireAtTheDay}`)
             .then((res) => res.json())
             .then((data) => setDisplayedMovies(data));
     },[selectedDay])

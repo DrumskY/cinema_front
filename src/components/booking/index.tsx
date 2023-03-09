@@ -42,6 +42,9 @@ const Booking = () => {
     const [selectedChair, setSelectedChair] = useState<number[]>([]);
     const [seanceDetails, setSeanceDetails] = useState<SeanceType | null>(null)
     const userIdLocalStorage = window.localStorage.getItem("userId");
+
+
+    const [requestNumber, setRequestNumber] = useState(0);
     
     const handleClick = (chairs: ArmchairType) => {
         setSelected((prevSelected: number[]) => {
@@ -60,21 +63,6 @@ const Booking = () => {
           });
     } 
 
-    useEffect(()=>{
-        axios<SeanceType>({
-            method: "get",
-            url: `${process.env.REACT_APP_SERVER_BASE}booking/repertoire?id=${seanceId}`,
-          })
-          .then(({data}) => setSeanceDetails(data))
-          .catch((err) => console.log(err));
-    },[seanceId])
-
-    if(seanceDetails === null) {
-        return(
-            <div className='contener'>Pobieranie danych D:</div>
-        )
-    }
-
     const bookSeats = () => {
         axios({
             method: "POST",
@@ -86,8 +74,10 @@ const Booking = () => {
             },
           })
             .then(({ data, status }) => {
-              console.log("data: "+data);
-              if (status === 200) {
+              console.log(data);
+              if (status === 201) {
+                setSeanceDetails(null)
+                setRequestNumber((prev)=> prev + 1)
                 console.log("Correctly booked!");
               }
             })
@@ -96,9 +86,27 @@ const Booking = () => {
                 console.log(e.response.data);
               }
             });
-            toast("Super udało się zarezerwować bilety!");
-        window.setTimeout(function(){location.reload()},2000)
+
+            setRequestNumber((prev) => prev + 1);
+            console.log(requestNumber)
+
     };
+
+    useEffect(()=>{
+        axios<SeanceType>({
+            method: "get",
+                url: `${process.env.REACT_APP_SERVER_BASE}booking/repertoire?id=${seanceId}`,
+            })
+            .then(({data}) => {setSeanceDetails(data); console.log("Done"); setSelected([]); setSelectedChair([])})
+            .catch((err) => console.log(err));
+          
+    },[requestNumber])
+
+    if(seanceDetails === null) {
+        return(
+            <div className='contener'>Pobieranie danych D:</div>
+        )
+    }
 
     return (
         <div className="contener-for-booking">
@@ -130,7 +138,7 @@ const Booking = () => {
                     const isChairReserverd = Boolean(chairs.reservationNum)
                         return <>
                             <button className={clsx("simple-chair", isChairSelected && "selected-chair", isChairReserverd && "reserved-chair")}
-                            onClick={() => handleClick(chairs)} key={chairs.cinemaArmchair.cinemaArmchairId}
+                            onClick={() => handleClick(chairs)}
                             disabled={isChairReserverd}>
                                 <p>{chairs.SeatingNumber}</p>
                             </button>
@@ -151,7 +159,7 @@ const Booking = () => {
                 <p>Wybrane miejsca: <h4>{selectedChair + " "}</h4>
                 Cena: {price = selected.length * 19} złotych</p>
                 <>
-                    <button className='reserve-button' onClick={bookSeats}><h3>Zarezerwuj bilety</h3></button>
+                    <button className='reserve-button' onClick={bookSeats} disabled = {!selectedChair.length}><h3>Zarezerwuj bilety</h3></button>
                     <ToastContainer />
                 </>
             </div>
