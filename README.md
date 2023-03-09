@@ -1,46 +1,54 @@
-# Getting Started with Create React App
+# Cinema Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack application for browsing, commenting movies and ordering tickets for the screening.
+The application has been written in react.js with typescript language.
 
-## Available Scripts
+## Links
 
-In the project directory, you can run:
+[Link to app :D](https://cinemaapp.onrender.com)
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Home page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![image](https://user-images.githubusercontent.com/92679685/223998884-31bc0986-41dc-4bfb-8ae2-d7edaaaf6d17.png)
 
-### `npm test`
+### Login and register screen
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](https://user-images.githubusercontent.com/92679685/224004715-dbfb3724-1270-48ff-8cf6-2695925939ae.png)
+![image](https://user-images.githubusercontent.com/92679685/224004754-1b327aa1-3e22-4e2b-8a58-2f5085280abe.png)
 
-### `npm run build`
+### Movie details screen
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image](https://user-images.githubusercontent.com/92679685/224003571-1ed8aea8-8cfc-4ba1-a726-e1373bce8231.png)
+![image](https://user-images.githubusercontent.com/92679685/224003653-92563da8-9074-40ae-8bcd-ee89db56c9c2.png)
+![image](https://user-images.githubusercontent.com/92679685/224003707-612c2b5c-2f0f-478d-a114-2d99054464b5.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Repertoire screen
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/92679685/224003813-a168679f-9589-40b4-af5e-c8331e562343.png)
 
-### `npm run eject`
+### Choose chairs for the show
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](https://user-images.githubusercontent.com/92679685/224003947-20db5ec3-80a9-4eba-957f-7adbe8b50f33.png)
+![image](https://user-images.githubusercontent.com/92679685/224004033-2c894d0d-65b7-45fe-843c-aeb227f4f30d.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User profile screen
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![image](https://user-images.githubusercontent.com/92679685/224004497-74d131b4-912a-42f6-bcb1-205d6327a2f3.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Admin panel
 
-## Learn More
+![image](https://user-images.githubusercontent.com/92679685/224004985-38f9b321-8e47-479d-b09b-179028eb9666.png)
+![image](https://user-images.githubusercontent.com/92679685/224004927-de82482b-fced-4c7d-97cf-78e07cd14310.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  - TypeScript
+  - React.js
+  - Node.js - 16.14.1
+  - Express
+  - Prisma
+  - PostgreSQL
+  - HTML
+  - CSS
